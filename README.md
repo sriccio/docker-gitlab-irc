@@ -38,7 +38,7 @@ Start the gitlab-irc server with at least IRC_HOST and IRC_CHANNELS environment 
 docker run -e IRC_HOST=irc.freenode.com -e "IRC_CHANNELS=['#gitlab-irc']" -e IRC_NICK=gitlab-9875 -d -p 5000:5000 --restart=always --name gitlab-irc chkelly/gitlab-irc:v1.0.5 
 ```
 ### Manual
-This assumes you have installed Ruby 2.2.3
+This assumes you have installed Ruby 2.3.0
 
 #### Checkout the code
 ```bash
@@ -67,21 +67,4 @@ Within Gitlab CE, select a project, then go to Settings -> Hooks, and enter in t
 ```bash
 http://localhost:5000
 ```
-
-## Troubleshooting
-
-1. If you encounter the following error and installed ruby with RVM:
-
-```
-Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
-
-    /home/ckelly/.rvm/rubies/ruby-2.2.3/bin/ruby -r ./siteconf20151116-6706-1j2d19j.rb extconf.rb
-    checking for CLOCK_MONOTONIC in time.h... *** extconf.rb failed ***
-    Could not create Makefile due to some reason, probably lack of necessary
-    libraries and/or headers.  Check the mkmf.log file for more details.  You may
-    need configuration options.
-```
-reinstall your version of ruby with:
-`rvm reinstall ruby-2.2.3 --disable-binary`
-
 
