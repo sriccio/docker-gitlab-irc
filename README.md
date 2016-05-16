@@ -9,8 +9,8 @@ A lightweight gitlab irc bot that announces gitlab project notifications via web
 * Support for announcing Commits, Merge Requests, Tags, and Issues. 
 
 ## Requirements
-* Tested on Ruby 2.2.3
-* Tested with Gitlab CE 8.1.4
+* Tested on Ruby 2.3.0
+* Tested with Gitlab CE 8.5
 
 ## Configuration
 
