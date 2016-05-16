@@ -73,12 +73,12 @@ post '/' do
         say "           View Commit: #{commit['url']}"
       end
     when 'tag_push'
-      say "[#{json['repository']['name']}] #{json['user_name']} | New Tag: #{json['ref']}"
+      say "[#{json['project']['name']}] New Tag by #{json['user_name']}: #{json['ref']}"
     when 'issue'
-      say "[#{json['repository']['name']}] #{json['user_name']} | New Issue: #{json['object_attributes']['title']}"
+      say "[#{json['project']['name']}] #{json['object_attributes']['action']} Issue by #{json['user']['username']}: #{json['object_attributes']['title']}"
       say "           View Issue: #{json['object_attributes']['url']}"
     when 'merge_request'
-      say "[#{json['repository']['name']}] #{json['user_name']} | New Merge Request: #{json['object_attributes']['title']}"
+      say "[#{json['project']['name']}] #{json['object_attributes']['action']} Merge Request by #{json['user']['username']}: #{json['object_attributes']['title']}"
       say "           View Request: #{json['object_attributes']['url']}"
     end
 
