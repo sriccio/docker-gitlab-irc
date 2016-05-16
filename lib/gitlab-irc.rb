@@ -78,7 +78,7 @@ post '/' do
       say "[#{json['project']['name']}] #{json['object_attributes']['action']} Issue by #{json['user']['username']}: #{json['object_attributes']['title']}"
       say "           View Issue: #{json['object_attributes']['url']}"
     when 'merge_request'
-      say "[#{json['project']['name']}] #{json['object_attributes']['action']} Merge Request by #{json['user']['username']}: #{json['object_attributes']['title']}"
+      say "[#{json['project']['name']}] #{json['object_attributes']['action']} Merge Request by #{json['user']['username']} : assignee #{json['object_attributes']['assignee']['username']} : #{json['object_attributes']['title']}"
       say "           View Request: #{json['object_attributes']['url']}"
     end
 
