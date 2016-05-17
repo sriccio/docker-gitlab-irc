@@ -75,11 +75,16 @@ post '/' do
     when 'tag_push'
       say "[#{json['project']['name']}] New Tag by #{json['user_name']}: #{json['ref']}"
     when 'issue'
-      say "[#{json['project']['name']}] #{json['object_attributes']['action']} Issue by #{json['user']['username']}: #{json['object_attributes']['title']}"
-      say "           View Issue: #{json['object_attributes']['url']}"
+      message = "[#{json['project']['name']}] #{json['object_attributes']['action']} Issue by #{json['user']['username']} : "
+      message += "#{json['object_attributes']['title']} : "
+      message += "View #{json['object_attributes']['url']}"
+      say message
     when 'merge_request'
-      say "[#{json['project']['name']}] #{json['object_attributes']['action']} Merge Request by #{json['user']['username']} : assignee #{json['assignee']['username']} : #{json['object_attributes']['title']}"
-      say "           View Request: #{json['object_attributes']['url']}"
+      message = "[#{json['project']['name']}] #{json['object_attributes']['action']} Merge Request by #{json['user']['username']} : "
+      message += "assignee #{json['assignee']['username']} : "
+      message += "#{json['object_attributes']['title']} : "
+      message += "View #{json['object_attributes']['url']}"
+      say message
     end
 
     status 200
