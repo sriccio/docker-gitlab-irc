@@ -85,6 +85,11 @@ post '/' do
       message += "#{json['object_attributes']['title']} : "
       message += "View #{json['object_attributes']['url']}"
       say message
+    when 'note'
+      next unless json['object_attributes']['note'] =~ /@(?<username>\w+)/
+      message = "[#{json['project']['name']}] Mentioned to #{Regexp.last_match[:username]} : "
+      message += "View #{json['object_attributes']['url']}"
+      say message
     end
 
     status 200
