@@ -62,7 +62,7 @@ def say(msg)
         end
 end
 
-post '/' do
+post '/*' do
     json = JSON.parse(request.body.read.to_s)
     notification_type = json['object_kind']
     case notification_type
