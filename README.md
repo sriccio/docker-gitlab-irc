@@ -6,7 +6,7 @@ A lightweight gitlab irc bot that announces gitlab project notifications via web
 ## Supports
 * Connecting to an IRC server over SSL
 * Authing with Nickserv
-* Support for announcing Commits, Merge Requests, Tags, and Issues. 
+* Support for announcing Commits, Merge Requests, Tags, and Issues.
 
 ## Requirements
 * Tested on Ruby 2.3.0
@@ -30,36 +30,14 @@ The following parameters can be set either in the config.yml file or via environ
 | DEBUG             | true             |                                                   |           | false          |
 
 ## Installation
-### Docker (Recommended)
+### Docker 
 
 Start the gitlab-irc server with at least IRC_HOST and IRC_CHANNELS environment variables set:
 
 ```bash
-docker run -e IRC_HOST=irc.freenode.com -e "IRC_CHANNELS=['#gitlab-irc']" -e IRC_NICK=gitlab-9875 -d -p 5000:5000 --restart=always --name gitlab-irc chkelly/gitlab-irc:v1.0.5 
-```
-### Manual
-This assumes you have installed Ruby 2.3.0
-
-#### Checkout the code
-```bash
-git clone https://github.com/chkelly/gitlab-irc.git;
-cd gitlab-irc;
-mv config/config.yml.example config/config.yml;
+docker run -e IRC_HOST=irc.freenode.com -e "IRC_CHANNELS=['#gitlab-irc']" -e IRC_NICK=gitlab-9875 -d -p 5000:5000 --restart=always --name gitlab-irc chkelly/gitlab-irc:v1.0.5
 ```
 
-#### Edit the config file
-```bash
-vim config/config.yml
-```
-
-You can use the config.yml.example file that is provided to configure your connection.
-
-#### Start it up
-Once completed, you can start the server using the following commands
-```bash
-cd gitlab-irc;
-bundle exec unicorn -c config/unicorn.conf -D
-```
 ### Configure Projects within Gitlab
 
 Within Gitlab CE, select a project, then go to Settings -> Hooks, and enter in the below. Check all the boxes. Adjust the below host and port to point to the ip:port that the gitlab-irc service is running on.
@@ -67,4 +45,3 @@ Within Gitlab CE, select a project, then go to Settings -> Hooks, and enter in t
 ```bash
 http://localhost:5000
 ```
-
