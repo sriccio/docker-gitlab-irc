@@ -30,7 +30,7 @@ $bot = Cinch::Bot.new do
     if get_config('IRC_PASSWORD')
       c.password = get_config('IRC_PASSWORD')
     end
-    c.ssl.use = get_config('DEBUG') || false
+    c.ssl.use = get_config('SSL') || false
     c.nick = get_config('IRC_NICK') || 'GitLab'
     c.user = get_config('IRC_NICK') || 'GitLab'
     c.realname = get_config('IRC_REALNAME') || 'GitLabBot'
