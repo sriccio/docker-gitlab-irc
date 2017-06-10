@@ -27,10 +27,11 @@ The following parameters can be set either in the config.yml file or via environ
 | IRC_REALNAME      | GitLabBot        | Real Name                                         |           | GitLabBot      |
 | IRC_USER_NAME     | gitlab-irc       | Username for authing with nickserv                |           |                |
 | IRC_USER_PASSWORD | user_password    | Password for authing with nickserv                |           |                |
+| GITLAB_TOKEN | sample_token    | Secret X-Gitlab-Token header used to authenticate requests                |           |                |
 | DEBUG             | true             |                                                   |           | false          |
 
 ## Installation
-### Docker 
+### Docker
 
 Start the gitlab-irc server with at least IRC_HOST and IRC_CHANNELS environment variables set:
 

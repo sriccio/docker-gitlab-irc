@@ -72,8 +72,8 @@ def say(msg)
 end
 
 post '/*' do
-    if get_config('SECRET_KEY')
-      halt 403 unless secure_compare(get_config('SECRET_KEY'), request.env["HTTP_ X-Gitlab-Token"])
+    if get_config('GITLAB_TOKEN')
+      halt 403 unless secure_compare(get_config('GITLAB_TOKEN'), request.env["HTTP_X-Gitlab-Token"])
     end
     json = JSON.parse(request.body.read.to_s)
     notification_type = json['object_kind']
