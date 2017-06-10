@@ -19,6 +19,15 @@ def get_config(key)
   end
 end
 
+def secure_compare(a, b)
+  return false if a.empty? || b.empty? || a.bytesize != b.bytesize
+  l = a.unpack "C#{a.bytesize}"
+
+  res = 0
+  b.each_byte { |byte| res |= byte ^ l.shift }
+  res == 0
+end
+
 unless get_config('IRC_HOST') && get_config('IRC_CHANNELS')
   raise "You must set IRC_HOST and IRC_CHANNELS in either the config file or environment variables"
 end
@@ -63,6 +72,9 @@ def say(msg)
 end
 
 post '/*' do
+    if get_config('SECRET_KEY')
+      halt 403 unless secure_compare(get_config('SECRET_KEY'), request.env["HTTP_ X-Gitlab-Token"])
+    end
     json = JSON.parse(request.body.read.to_s)
     notification_type = json['object_kind']
     case notification_type
