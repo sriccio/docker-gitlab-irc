@@ -64,7 +64,7 @@ end
 
 post '/*' do
     if get_config('GITLAB_TOKEN')
-      halt 403 unless get_config('GITLAB_TOKEN') == request.env["HTTP_X-Gitlab-Token"]
+      halt 403 unless get_config('GITLAB_TOKEN') == request.env["HTTP_X_GITLAB_TOKEN"]
     end
     json = JSON.parse(request.body.read.to_s)
     notification_type = json['object_kind']
@@ -84,7 +84,6 @@ post '/*' do
       say message
     when 'merge_request'
       message = "[#{json['project']['name']}] #{json['object_attributes']['action']} Merge Request by #{json['user']['username']} : "
-      message += "assignee #{json['assignee']['username']} : "
       message += "#{json['object_attributes']['title']} : "
       message += "View #{json['object_attributes']['url']}"
       say message
