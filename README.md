@@ -36,7 +36,7 @@ The following parameters can be set either in the config.yml file or via environ
 Start the gitlab-irc server with at least IRC_HOST and IRC_CHANNELS environment variables set:
 
 ```bash
-docker run -e IRC_HOST=irc.freenode.com -e "IRC_CHANNELS=['#gitlab-irc']" -e IRC_NICK=gitlab-9875 -d -p 5000:5000 --restart=always --name gitlab-irc chkelly/gitlab-irc:v1.0.5
+docker run -e IRC_HOST=irc.freenode.com -e "IRC_CHANNELS=['#gitlab-irc']" -e IRC_NICK=gitlab-9875 -d -p 5000:5000 --restart=always --name gitlab-irc dvdmuckle/gitlab-irc:latest
 ```
 
 ### Configure Projects within Gitlab
