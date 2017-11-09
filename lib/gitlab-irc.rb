@@ -93,6 +93,9 @@ post '/*' do
         message += "View #{json['object_attributes']['url']}"
         say message
       end
+    when 'pipeline'
+      say "[#{json['project']['name']}] #{json['user']['name']} | New Pipeline: #{json['object_attributes']['status']}"
+      say "           View Pipeline: #{json['commit']['url']}/pipelines"
     end
 
     status 200
