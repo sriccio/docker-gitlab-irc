@@ -3,6 +3,9 @@
 ## Summary
 A lightweight gitlab irc bot that announces gitlab project notifications via webhooks.
 
+## Credits
+Forked from dvdmuckle/docker-gitlab-irc. Original project by chkelly/gitlab-irc.
+
 ## Supports
 * Connecting to an IRC server over SSL
 * Authing with Nickserv
